@@ -1,4 +1,5 @@
 import AppKit
+import Darwin
 import Foundation
 import UniformTypeIdentifiers
 
@@ -9,6 +10,11 @@ final class ReaderState: ObservableObject {
     @Published private(set) var isLoading = false
     @Published private(set) var loadError: String?
     private var renderTask: Task<Void, Never>?
+    private var watchSource: DispatchSourceFileSystemObject?
+    private var watchFileDescriptor: CInt = -1
+    private let watchQueue = DispatchQueue(label: "MDReader.FileWatch")
+    private var watchDebounceTask: Task<Void, Never>?
+    private var watchRestartTask: Task<Void, Never>?
 
     func presentOpenPanel() {
         let panel = NSOpenPanel()
@@ -23,11 +29,27 @@ final class ReaderState: ObservableObject {
     }
 
     func openMarkdown(at url: URL) {
-        renderTask?.cancel()
         currentURL = url
-        renderedHTML = nil
-        loadError = nil
-        isLoading = true
+        startWatchingCurrentFile()
+        renderMarkdown(at: url, clearExistingContent: true, showLoadingState: true, surfaceErrors: true)
+    }
+
+    private func renderMarkdown(
+        at url: URL,
+        clearExistingContent: Bool,
+        showLoadingState: Bool,
+        surfaceErrors: Bool
+    ) {
+        renderTask?.cancel()
+        watchDebounceTask?.cancel()
+
+        if clearExistingContent {
+            renderedHTML = nil
+            loadError = nil
+        }
+        if showLoadingState {
+            isLoading = true
+        }
 
         renderTask = Task { [weak self] in
             do {
@@ -41,13 +63,83 @@ final class ReaderState: ObservableObject {
                 guard !Task.isCancelled else { return }
                 self?.renderedHTML = html
                 self?.loadError = nil
-                self?.isLoading = false
+                if showLoadingState {
+                    self?.isLoading = false
+                }
             } catch {
                 guard !Task.isCancelled else { return }
-                self?.renderedHTML = nil
-                self?.loadError = error.localizedDescription
-                self?.isLoading = false
+                if surfaceErrors {
+                    self?.renderedHTML = nil
+                    self?.loadError = error.localizedDescription
+                }
+                if showLoadingState {
+                    self?.isLoading = false
+                }
             }
+        }
+    }
+
+    private func refreshCurrentMarkdownIfNeeded() {
+        guard let url = currentURL else { return }
+        renderMarkdown(at: url, clearExistingContent: false, showLoadingState: false, surfaceErrors: false)
+    }
+
+    private func startWatchingCurrentFile() {
+        stopWatchingCurrentFile()
+        guard let url = currentURL else { return }
+
+        let descriptor = open(url.path, O_EVTONLY)
+        guard descriptor >= 0 else { return }
+
+        watchFileDescriptor = descriptor
+        let source = DispatchSource.makeFileSystemObjectSource(
+            fileDescriptor: descriptor,
+            eventMask: [.write, .delete, .rename, .extend, .attrib],
+            queue: watchQueue
+        )
+
+        source.setEventHandler { [weak self] in
+            guard let self else { return }
+            let events = source.data
+            Task { @MainActor [weak self] in
+                self?.handleWatchEvent(events)
+            }
+        }
+
+        source.setCancelHandler {
+            close(descriptor)
+        }
+
+        watchSource = source
+        source.resume()
+    }
+
+    private func stopWatchingCurrentFile() {
+        let source = watchSource
+        watchSource = nil
+        source?.cancel()
+        watchFileDescriptor = -1
+    }
+
+    private func handleWatchEvent(_ events: DispatchSource.FileSystemEvent) {
+        scheduleDebouncedAutoRefresh()
+
+        if events.contains(.rename) || events.contains(.delete) {
+            watchRestartTask?.cancel()
+            watchRestartTask = Task { [weak self] in
+                try? await Task.sleep(nanoseconds: 300_000_000)
+                guard !Task.isCancelled else { return }
+                self?.startWatchingCurrentFile()
+            }
+        }
+    }
+
+    private func scheduleDebouncedAutoRefresh() {
+        watchDebounceTask?.cancel()
+        watchDebounceTask = Task { [weak self] in
+            try? await Task.sleep(nanoseconds: 200_000_000)
+            guard !Task.isCancelled else { return }
+            self?.refreshCurrentMarkdownIfNeeded()
         }
     }
 
