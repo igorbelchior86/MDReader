@@ -39,6 +39,10 @@ Use the packaged DMG in [`dist/MDReader.dmg`](dist/MDReader.dmg), then drag `MDR
 
 ## License
 
-This repository includes QLMarkdown runtime assets. See:
+This project is licensed under the GNU General Public License v3.0.
+
+See [`LICENSE`](LICENSE) for details.
+
+This repository also includes QLMarkdown runtime assets. See:
 
 - `MDReader/QLMarkdownSupport/QLMarkdown-LICENSE.txt`
