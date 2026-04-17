@@ -1,0 +1,30 @@
+name: MDReader
+options:
+  createIntermediateGroups: true
+settings:
+  base:
+    SWIFT_VERSION: 5.0
+    MACOSX_DEPLOYMENT_TARGET: 14.0
+packages: {}
+targets:
+  MDReader:
+    type: application
+    platform: macOS
+    deploymentTarget: "14.0"
+    sources:
+      - path: MDReader
+        excludes:
+          - QLMarkdownSupport/**
+      - path: MDReader/QLMarkdownSupport
+        type: folder
+        buildPhase: resources
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.igorbelchior.MDReader
+        INFOPLIST_FILE: MDReader/Info.plist
+        GENERATE_INFOPLIST_FILE: NO
+        CURRENT_PROJECT_VERSION: 3
+        MARKETING_VERSION: 1.0.2
+        CODE_SIGN_STYLE: Automatic
+    scheme:
+      testTargets: []

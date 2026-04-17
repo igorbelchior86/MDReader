@@ -1,0 +1,328 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1FD7013189325F02FEAE434B /* QLMarkdownRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 928B47C67F8C8F519ECCB1E9 /* QLMarkdownRenderer.swift */; };
+		296D123666043FEB2E6FEC27 /* QLMarkdownSupport in Resources */ = {isa = PBXBuildFile; fileRef = 3988DAB6809F2F6DB7E3A219 /* QLMarkdownSupport */; };
+		3D78E843AE9F8F20361E8351 /* ReaderState.swift in Sources */ = {isa = PBXBuildFile; fileRef = F436E34B32BB4DD61228CB7C /* ReaderState.swift */; };
+		413C954F8B9E4CE3F544D14F /* MarkdownWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE040DE93FBFEFABE8AAEE22 /* MarkdownWebView.swift */; };
+		42D98783ADE89C2748BA56DA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D6FCD1DF3CF709A07EC8BB /* ContentView.swift */; };
+		4BC9A13FACFEC3320781F264 /* MDReaderApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF51D26C9FF45FFBA64FA3A /* MDReaderApp.swift */; };
+		75CF3882A3467C4C1C5CA60F /* AppIcon.icns in Resources */ = {isa = PBXBuildFile; fileRef = 28E3912F9DF0A486C30A0C42 /* AppIcon.icns */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		28E3912F9DF0A486C30A0C42 /* AppIcon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = AppIcon.icns; sourceTree = "<group>"; };
+		3988DAB6809F2F6DB7E3A219 /* QLMarkdownSupport */ = {isa = PBXFileReference; lastKnownFileType = folder; name = QLMarkdownSupport; path = MDReader/QLMarkdownSupport; sourceTree = SOURCE_ROOT; };
+		50D6FCD1DF3CF709A07EC8BB /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		53DED5154D56B7C28050E568 /* MDReader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MDReader.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		928B47C67F8C8F519ECCB1E9 /* QLMarkdownRenderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QLMarkdownRenderer.swift; sourceTree = "<group>"; };
+		D2E0B10A23AE4496C09637D9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		DE040DE93FBFEFABE8AAEE22 /* MarkdownWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkdownWebView.swift; sourceTree = "<group>"; };
+		EFF51D26C9FF45FFBA64FA3A /* MDReaderApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MDReaderApp.swift; sourceTree = "<group>"; };
+		F436E34B32BB4DD61228CB7C /* ReaderState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReaderState.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+		712726D41F10E7970879CFFD /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				53DED5154D56B7C28050E568 /* MDReader.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		88ABB4D75C27212A5F8EBF95 = {
+			isa = PBXGroup;
+			children = (
+				94A7CD4F39A48B20E1CEA966 /* MDReader */,
+				712726D41F10E7970879CFFD /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		94A7CD4F39A48B20E1CEA966 /* MDReader */ = {
+			isa = PBXGroup;
+			children = (
+				28E3912F9DF0A486C30A0C42 /* AppIcon.icns */,
+				50D6FCD1DF3CF709A07EC8BB /* ContentView.swift */,
+				D2E0B10A23AE4496C09637D9 /* Info.plist */,
+				DE040DE93FBFEFABE8AAEE22 /* MarkdownWebView.swift */,
+				EFF51D26C9FF45FFBA64FA3A /* MDReaderApp.swift */,
+				928B47C67F8C8F519ECCB1E9 /* QLMarkdownRenderer.swift */,
+				3988DAB6809F2F6DB7E3A219 /* QLMarkdownSupport */,
+				F436E34B32BB4DD61228CB7C /* ReaderState.swift */,
+			);
+			path = MDReader;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		63E7C78D8DCA6EAF62D87CF6 /* MDReader */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E840C51A152FDA84291957F3 /* Build configuration list for PBXNativeTarget "MDReader" */;
+			buildPhases = (
+				047964FB428C0CB56914C72C /* Sources */,
+				99C7912BE2BE3079AB963CE9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MDReader;
+			packageProductDependencies = (
+			);
+			productName = MDReader;
+			productReference = 53DED5154D56B7C28050E568 /* MDReader.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		76EC3ADC013A96C46922A949 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+					63E7C78D8DCA6EAF62D87CF6 = {
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 074FFE001917894C6F73D73E /* Build configuration list for PBXProject "MDReader" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = 88ABB4D75C27212A5F8EBF95;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 712726D41F10E7970879CFFD /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				63E7C78D8DCA6EAF62D87CF6 /* MDReader */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		99C7912BE2BE3079AB963CE9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				75CF3882A3467C4C1C5CA60F /* AppIcon.icns in Resources */,
+				296D123666043FEB2E6FEC27 /* QLMarkdownSupport in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		047964FB428C0CB56914C72C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				42D98783ADE89C2748BA56DA /* ContentView.swift in Sources */,
+				4BC9A13FACFEC3320781F264 /* MDReaderApp.swift in Sources */,
+				413C954F8B9E4CE3F544D14F /* MarkdownWebView.swift in Sources */,
+				1FD7013189325F02FEAE434B /* QLMarkdownRenderer.swift in Sources */,
+				3D78E843AE9F8F20361E8351 /* ReaderState.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		0EA3FF3494C3712E77B2B078 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		1843F0856ADA9B82446E16DC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 3;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = MDReader/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MARKETING_VERSION = 1.0.2;
+				PRODUCT_BUNDLE_IDENTIFIER = com.igorbelchior.MDReader;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		1D609AEBC5D2A40B286E3490 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		A87B861879493E08C4D36D98 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 3;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = MDReader/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MARKETING_VERSION = 1.0.2;
+				PRODUCT_BUNDLE_IDENTIFIER = com.igorbelchior.MDReader;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		074FFE001917894C6F73D73E /* Build configuration list for PBXProject "MDReader" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0EA3FF3494C3712E77B2B078 /* Debug */,
+				1D609AEBC5D2A40B286E3490 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		E840C51A152FDA84291957F3 /* Build configuration list for PBXNativeTarget "MDReader" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A87B861879493E08C4D36D98 /* Debug */,
+				1843F0856ADA9B82446E16DC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 76EC3ADC013A96C46922A949 /* Project object */;
+}
