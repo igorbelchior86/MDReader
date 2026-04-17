@@ -15,6 +15,7 @@ final class ReaderState: ObservableObject {
     private let watchQueue = DispatchQueue(label: "MDReader.FileWatch")
     private var watchDebounceTask: Task<Void, Never>?
     private var watchRestartTask: Task<Void, Never>?
+    private var refreshRetryTask: Task<Void, Never>?
 
     func presentOpenPanel() {
         let panel = NSOpenPanel()
@@ -71,6 +72,9 @@ final class ReaderState: ObservableObject {
                 if surfaceErrors {
                     self?.renderedHTML = nil
                     self?.loadError = error.localizedDescription
+                } else {
+                    // Some editors do atomic saves (replace file). Retry shortly if refresh failed silently.
+                    self?.scheduleRefreshRetry()
                 }
                 if showLoadingState {
                     self?.isLoading = false
@@ -130,6 +134,7 @@ final class ReaderState: ObservableObject {
                 try? await Task.sleep(nanoseconds: 300_000_000)
                 guard !Task.isCancelled else { return }
                 self?.startWatchingCurrentFile()
+                self?.scheduleDebouncedAutoRefresh()
             }
         }
     }
@@ -138,6 +143,15 @@ final class ReaderState: ObservableObject {
         watchDebounceTask?.cancel()
         watchDebounceTask = Task { [weak self] in
             try? await Task.sleep(nanoseconds: 200_000_000)
+            guard !Task.isCancelled else { return }
+            self?.refreshCurrentMarkdownIfNeeded()
+        }
+    }
+
+    private func scheduleRefreshRetry() {
+        refreshRetryTask?.cancel()
+        refreshRetryTask = Task { [weak self] in
+            try? await Task.sleep(nanoseconds: 350_000_000)
             guard !Task.isCancelled else { return }
             self?.refreshCurrentMarkdownIfNeeded()
         }
