@@ -1,4 +1,5 @@
 import AppKit
+import Sparkle
 import SwiftUI
 
 final class MDReaderAppDelegate: NSObject, NSApplicationDelegate {
@@ -11,6 +12,15 @@ final class MDReaderAppDelegate: NSObject, NSApplicationDelegate {
 struct MDReaderApp: App {
     @NSApplicationDelegateAdaptor(MDReaderAppDelegate.self) private var appDelegate
     @StateObject private var readerState = ReaderState()
+    private let updaterController: SPUStandardUpdaterController
+
+    init() {
+        updaterController = SPUStandardUpdaterController(
+            startingUpdater: true,
+            updaterDelegate: nil,
+            userDriverDelegate: nil
+        )
+    }
 
     var body: some Scene {
         WindowGroup {
@@ -21,6 +31,12 @@ struct MDReaderApp: App {
                 }
         }
         .commands {
+            CommandGroup(after: .appInfo) {
+                Button("Check for Updates…") {
+                    updaterController.checkForUpdates(nil)
+                }
+                .disabled(!updaterController.updater.canCheckForUpdates)
+            }
             CommandGroup(replacing: .newItem) {
                 Button("Open…") {
                     readerState.presentOpenPanel()

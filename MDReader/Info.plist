@@ -47,5 +47,11 @@
       </array>
     </dict>
   </array>
+  <key>SUFeedURL</key>
+  <string>https://raw.githubusercontent.com/igorbelchior86/MDReader/main/appcast.xml</string>
+  <key>SUEnableAutomaticChecks</key>
+  <true/>
+  <key>SUScheduledCheckInterval</key>
+  <integer>86400</integer>
 </dict>
 </plist>

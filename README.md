@@ -18,6 +18,7 @@ I built this because I was fed up with double-clicking `.md` files and having th
 - Works standalone (no separate Quick Look plugin install required)
 - Supports opening files from Finder (`Open With` / default app)
 - Quits when the last window is closed
+- Sparkle-based auto-update support (scheduled update checks)
 
 ## Build
 
@@ -36,6 +37,16 @@ xcodebuild -project MDReader.xcodeproj -scheme MDReader -configuration Release b
 ## Install
 
 Use the packaged DMG in [`dist/MDReader.dmg`](dist/MDReader.dmg), then drag `MDReader.app` into `/Applications`.
+
+## Auto-Update (Sparkle)
+
+MDReader uses Sparkle for update checks and installs.
+
+- Appcast URL: [`appcast.xml`](appcast.xml)
+- Feed is configured via `SUFeedURL` in [MDReader/Info.plist](MDReader/Info.plist)
+- Automatic checks enabled via `SUEnableAutomaticChecks` and `SUScheduledCheckInterval`
+
+To make production updates work end-to-end, publish signed/notarized releases and generate a signed appcast with Sparkle tools (`generate_keys`, `generate_appcast`) from Sparkle’s documentation.
 
 ## License
 

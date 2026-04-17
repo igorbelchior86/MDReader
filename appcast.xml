@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0"
+     xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle"
+     xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>MDReader Appcast</title>
+    <link>https://github.com/igorbelchior86/MDReader/releases</link>
+    <description>Updates for MDReader</description>
+    <language>en</language>
+  </channel>
+</rss>
