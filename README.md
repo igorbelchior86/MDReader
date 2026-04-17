@@ -1,5 +1,7 @@
 # MDReader
 
+![MDReader preview](docs/images/mdreader-preview.png)
+
 I built this because I was fed up with double-clicking `.md` files and having the wrong apps take over: Xcode launching, Antigravity popping open, and still no simple Markdown reader that just opens and renders the file.
 
 `MDReader` is intentionally simple: open a Markdown file and read it with proper rich formatting.
